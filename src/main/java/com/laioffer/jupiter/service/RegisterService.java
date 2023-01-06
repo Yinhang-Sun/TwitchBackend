@@ -17,6 +17,5 @@ public class RegisterService {
         user.setPassword(Util.encryptPassword(user.getUserId(), user.getPassword()));
         return registerDao.register(user);
     }
-
-
+    // This is a test
 }
