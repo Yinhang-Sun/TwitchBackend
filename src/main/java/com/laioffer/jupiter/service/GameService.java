@@ -74,7 +74,7 @@ public class GameService {
                 throw new TwitchException("Failed to get result from Twitch API");
             }
             JSONObject obj = new JSONObject(EntityUtils.toString(entity));
-            return obj.getJSONArray("date").toString();
+            return obj.getJSONArray("data").toString();
         };
 
         try {
@@ -169,7 +169,7 @@ public class GameService {
                 items = searchStreams(gameId, limit);
                 break;
             case VIDEO:
-                items =searchVideos(gameId, limit);
+                items = searchVideos(gameId, limit);
                 break;
             case CLIP:
                 items = searchClips(gameId, limit);
