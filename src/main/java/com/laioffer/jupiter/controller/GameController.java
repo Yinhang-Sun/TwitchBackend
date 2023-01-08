@@ -13,7 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 @Controller
 public class GameController {
 
@@ -26,7 +25,7 @@ public class GameController {
         response.setContentType("application/json;charset=UTF-8");
         try {
             // Return the dedicated game information if gameName is provided in the request URL, otherwise return the top x games.
-            if (gameName != null) {
+            if(gameName != null) {
                 response.getWriter().print(new ObjectMapper().writeValueAsString(gameService.searchGame(gameName)));
             } else {
                 response.getWriter().print(new ObjectMapper().writeValueAsString(gameService.topGames(0)));
@@ -35,5 +34,4 @@ public class GameController {
             throw new ServletException(e);
         }
     }
-
 }
