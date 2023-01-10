@@ -23,5 +23,4 @@ public class RegisterController {
             response.setStatus(HttpServletResponse.SC_CONFLICT);
         }
     }
-    // This is a test
 }
