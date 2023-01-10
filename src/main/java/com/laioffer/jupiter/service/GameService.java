@@ -33,19 +33,18 @@ public class GameService {
     private static final String TWITCH_BASE_URL = "https://www.twitch.tv/";
     private static final int DEFAULT_SEARCH_LIMIT = 20;
 
-
     // Build the request URL which will be used when calling Twitch APIs, e.g., https://api.twitch.tv/helix/games/top when trying to get top games.
     private String buildGameURL(String url, String gameName, int limit) {
         if(gameName.equals("")) {
             return String.format(url, limit);
         } else {
             try {
-                // Encode special characters in URL, e.g. Rick Sun -> Rick%20Sun
+                // Encode special characters in URL, e.g., Rick Sun -> Rick%20Sun
                 gameName = URLEncoder.encode(gameName, "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            return String.format(url, gameName);
+            return String.format(url, limit);
         }
     }
 
@@ -62,7 +61,7 @@ public class GameService {
     private String searchTwitch(String url) throws TwitchException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
-        // Define the response handler to parse and return HTTP response body returned from Twitch
+        // Define the response handler to parse and return HTTP response body return from Twitch
         ResponseHandler<String> responseHandler = response -> {
             int responseCode = response.getStatusLine().getStatusCode();
             if(responseCode != 200) {
@@ -152,7 +151,7 @@ public class GameService {
         return clips;
     }
 
-    // Returns the top x videos based on game ID.
+    // Return the top x videos based on game ID.
     private List<Item> searchVideos(String gameId, int limit) throws TwitchException {
         List<Item> videos = getItemList(searchTwitch(buildSearchURL(VIDEO_SEARCH_URL_TEMPLATE, gameId, limit)));
         for(Item item : videos) {
@@ -164,7 +163,7 @@ public class GameService {
     public List<Item> searchByType(String gameId, ItemType type, int limit) throws TwitchException {
         List<Item> items = Collections.emptyList();
 
-        switch(type) {
+        switch (type) {
             case STREAM:
                 items = searchStreams(gameId, limit);
                 break;
@@ -176,7 +175,7 @@ public class GameService {
                 break;
         }
 
-        // Update gameId for all items. GameId is used by recommendation function
+        // Update gameId for all items. GameId is used by recommendation function.
         for(Item item : items) {
             item.setGameId(gameId);
         }
@@ -190,8 +189,5 @@ public class GameService {
         }
         return itemMap;
     }
-
-
-
 }
 
