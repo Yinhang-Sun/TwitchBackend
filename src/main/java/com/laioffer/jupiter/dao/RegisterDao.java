@@ -23,15 +23,13 @@ public class RegisterDao {
             session.save(user);
             session.getTransaction().commit();
         } catch (PersistenceException | IllegalStateException ex) {
-            // if hibernate throws this exception, it means the user already be register
+            // if hibernate throws this exception, it means the user already be registered.
             ex.printStackTrace();
             session.getTransaction().rollback();
             return false;
         } finally {
-            if (session != null) session.close();
+            if(session != null) session.close();
         }
         return true;
     }
 }
-
-// Test registerDao commit
