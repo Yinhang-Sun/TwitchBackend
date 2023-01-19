@@ -24,7 +24,7 @@ public class FavoriteService {
 
     public Map<String, List<Item>> getFavoriteItems(String userId) {
         Map<String, List<Item>> itemMap = new HashMap<>();
-        for (ItemType type : ItemType.values()) {
+        for(ItemType type : ItemType.values()) {
             itemMap.put(type.toString(), new ArrayList<>());
         }
         Set<Item> favorites = favoriteDao.getFavoriteItems(userId);
