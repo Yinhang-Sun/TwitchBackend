@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-// test change 5
+// test change 6
 @Controller
 public class GameController {
 
