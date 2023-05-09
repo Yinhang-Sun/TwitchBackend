@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
-// test change 2
+// TEST CHANGES
 @Controller
 public class FavoriteController {
 
