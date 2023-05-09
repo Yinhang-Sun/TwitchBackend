@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+//  test
 @Controller
 public class RegisterController {
 
