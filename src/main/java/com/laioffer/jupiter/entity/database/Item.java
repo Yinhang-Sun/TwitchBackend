@@ -1,12 +1,11 @@
 package com.laioffer.jupiter.entity.database;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "items")
@@ -42,6 +41,10 @@ public class Item implements Serializable {
     @Enumerated(value = EnumType.STRING)
     @JsonProperty("item_type")
     private ItemType type;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "itemSet")
+    private Set<User> users = new HashSet<>();
 
     public String getId() {
         return id;
@@ -97,5 +100,13 @@ public class Item implements Serializable {
 
     public void setType(ItemType type) {
         this.type = type;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }
