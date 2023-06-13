@@ -17,17 +17,17 @@ public class ApplicationConfig {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         // make sure you add your own package name if your class is not under com.laioffer.jupiter.entity.db
-        sessionFactory.setPackagesToScan("com.laioffer.jupiter.entity.db");
+        sessionFactory.setPackagesToScan("com.laioffer.jupiter.entity.database");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
 
     @Bean(name = "dataSource")
     public DataSource dataSource() {
-        String RDS_ENDPOINT = "laiproject-instance.cxpnfat63xzx.us-east-1.rds.amazonaws.com";
+        String RDS_ENDPOINT = "RDS_INSTANCE_ADDRESS";
         String USERNAME = "admin";
         String PASSWORD = "12345678";
-        //需要修改红色部分, 保留其他内容,  YOUR_RDS_INSTANCE_ADDRESS,USERNAME,  PASSWORD are information created last lesson
+
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://" + RDS_ENDPOINT + ":3306/twitch?createDatabaseIfNotExist=true&serverTimezone=UTC");
