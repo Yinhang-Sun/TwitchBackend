@@ -16,7 +16,7 @@ public class ApplicationConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        // make sure you add your own package name if your class is not under com.laioffer.jupiter.entity.db
+        // make sure you add your own package name if your class is not under com.laioffer.jupiter.entity.database
         sessionFactory.setPackagesToScan("com.laioffer.jupiter.entity.database");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
