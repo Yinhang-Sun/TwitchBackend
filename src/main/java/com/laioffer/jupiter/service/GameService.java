@@ -169,7 +169,7 @@ public class GameService {
         switch (type) {
             case STREAM:
                 items = searchStreams(gameId, limit);
-                break;;
+                break;
             case VIDEO:
                 items = searchVideos(gameId, limit);
                 break;

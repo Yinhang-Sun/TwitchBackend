@@ -1,8 +1,8 @@
 package com.laioffer.jupiter.service;
 
 import com.laioffer.jupiter.dao.FavoriteDao;
-import com.laioffer.jupiter.entity.db.Item;
-import com.laioffer.jupiter.entity.db.ItemType;
+import com.laioffer.jupiter.entity.database.Item;
+import com.laioffer.jupiter.entity.database.ItemType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
