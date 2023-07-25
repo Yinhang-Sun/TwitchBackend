@@ -14,20 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-// test change 5
 @Controller
 public class GameController {
 
     @Autowired
     private GameService gameService;
 
-
     @RequestMapping(value = "/game", method = RequestMethod.GET)
     public void getGame(@RequestParam(value = "game_name", required = false) String gameName, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("application/json;charset=UTF-8");
         try {
-            // Return the dedicated game information if gameName is provided in the request URL, otherwise return the top x games.
-            if (gameName != null) {
+            // Return the dedicated game information if gameName is provided in the request URL, otherwise return the top x game
+            if(gameName != null) {
                 response.getWriter().print(new ObjectMapper().writeValueAsString(gameService.searchGame(gameName)));
             } else {
                 response.getWriter().print(new ObjectMapper().writeValueAsString(gameService.topGames(0)));
@@ -36,5 +34,4 @@ public class GameController {
             throw new ServletException(e);
         }
     }
-
 }

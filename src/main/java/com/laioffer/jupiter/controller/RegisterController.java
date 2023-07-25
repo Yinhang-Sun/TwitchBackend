@@ -1,3 +1,4 @@
+// test commit and push
 package com.laioffer.jupiter.controller;
 
 import com.laioffer.jupiter.entity.db.User;
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-//
 @Controller
 public class RegisterController {
 
@@ -25,6 +25,4 @@ public class RegisterController {
             response.setStatus(HttpServletResponse.SC_CONFLICT);
         }
     }
-
-
 }

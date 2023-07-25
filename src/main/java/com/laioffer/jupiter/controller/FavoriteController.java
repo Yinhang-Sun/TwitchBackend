@@ -15,18 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
+// TEST commit and push 4
 @Controller
 public class FavoriteController {
 
     @Autowired
-    private FavoriteService favoriteService;
+    private FavoriteService  favoriteService;
 
     @RequestMapping(value = "/favorite", method = RequestMethod.POST)
     public void setFavoriteItem(@RequestBody FavoriteRequestBody requestBody, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
-        if (session == null) {
+        if(session == null) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            return ;
+            return;
         }
         String userId = (String) session.getAttribute("user_id");
         favoriteService.setFavoriteItem(userId, requestBody.getFavoriteItem());
@@ -35,7 +36,7 @@ public class FavoriteController {
     @RequestMapping(value = "/favorite", method = RequestMethod.DELETE)
     public void unsetFavoriteItem(@RequestBody FavoriteRequestBody requestBody, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
-        if (session == null) {
+        if(session == null) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return;
         }
@@ -47,13 +48,12 @@ public class FavoriteController {
     @ResponseBody
     public Map<String, List<Item>> getFavoriteItem(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
-        if (session == null) {
+        if(session == null) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return new HashMap<>();
         }
         String userId = (String) session.getAttribute("user_id");
         return favoriteService.getFavoriteItems(userId);
     }
-
 
 }
