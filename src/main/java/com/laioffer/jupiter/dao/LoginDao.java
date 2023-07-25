@@ -12,7 +12,7 @@ public class LoginDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    // Verify if the given user Id and password are correct. Return the username when it passes.
+    // Verify if the given user Id and password are correct. Return the username when it passes
     public String verifyLogin(String userId, String password) {
         String name = "";
 
