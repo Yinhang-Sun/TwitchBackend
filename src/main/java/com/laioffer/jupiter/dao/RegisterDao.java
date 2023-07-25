@@ -1,6 +1,6 @@
 package com.laioffer.jupiter.dao;
 
-import com.laioffer.jupiter.entity.db.User;
+import com.laioffer.jupiter.entity.database.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.PersistenceException;
 
-// test commit and push
+// test commit and push the second time
 @Repository
 public class RegisterDao {
 
