@@ -1,7 +1,7 @@
 // test commit and push
 package com.laioffer.jupiter.controller;
 
-import com.laioffer.jupiter.entity.db.User;
+import com.laioffer.jupiter.entity.database.User;
 import com.laioffer.jupiter.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
