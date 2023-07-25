@@ -1,6 +1,6 @@
 package com.laioffer.jupiter.dao;
 
-import com.laioffer.jupiter.entity.db.User;
+import com.laioffer.jupiter.entity.database.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
