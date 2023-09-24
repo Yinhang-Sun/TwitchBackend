@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+// GitHub test
 @Controller
 public class LogoutController {
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
